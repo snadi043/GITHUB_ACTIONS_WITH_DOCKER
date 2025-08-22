@@ -3,5 +3,26 @@
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "mongodb": "^6.18.0"
-  }
+  },
+  "name": "github_actions_with_docker",
+  "version": "1.0.0",
+  "description": "This project focuses on integrating the github actions with docker containers toimplement the concept of continuos delivery in the application development and also test the database connections with testing database images from docker. ",
+  "main": "index.js",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snadi043/GITHUB_ACTIONS_WITH_DOCKER.git"
+  },
+  "author": "SAI HARNADH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snadi043/GITHUB_ACTIONS_WITH_DOCKER/issues"
+  },
+  "homepage": "https://github.com/snadi043/GITHUB_ACTIONS_WITH_DOCKER#readme"
 }
