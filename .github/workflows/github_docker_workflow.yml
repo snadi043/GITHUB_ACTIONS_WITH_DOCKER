@@ -24,14 +24,15 @@ jobs:
       - name: Install all dependencies with sanity.
         run: npm ci
       - name: Create the update npm cache.
-        uses: actions/upload-artifact@v4
+        id: npm-cache-test
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/package-lock.json') }}
       - name: Run the server.
         run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run Tests.
-        run: npm run test
+        run: npm test
       - name: Output the github logs.
         run: |
           echo {{ toJSON(github) }}
