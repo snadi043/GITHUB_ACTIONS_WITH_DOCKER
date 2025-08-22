@@ -2,7 +2,8 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
-    "mongodb": "^6.18.0"
+    "mongodb": "^6.18.0",
+    "wait-on": "^8.0.4"
   },
   "name": "github_actions_with_docker",
   "version": "1.0.0",
@@ -15,7 +16,6 @@
   "scripts": {
     "test": "npx playwire test",
     "start": "node app.js"
-
   },
   "repository": {
     "type": "git",
