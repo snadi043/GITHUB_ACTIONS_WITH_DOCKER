@@ -35,7 +35,7 @@ jobs:
       - name: Output the github logs.
         run: |
           echo {{ toJSON(github) }}
-          echo "MONGODB_USERNAME: ${{MONGODB_USERNAME}}"
+          echo "MONGODB_USERNAME: "${{MONGODB_USERNAME}}""
       - name: Finish Test
         run: echo "Successfully Finished the Test Job."
   deploy:
@@ -46,6 +46,6 @@ jobs:
         env: 
           PORT: 3000
         run: |
-          echo "MONGODB_NAME: ${{ MONGODB_NAME }}"
-          echo "MONGODB_USERNAME: ${{ MONGODB_USERNAME }}"
+          echo "MONGODB_NAME: "${{ MONGODB_NAME }}""
+          echo "MONGODB_USERNAME: "${{ MONGODB_USERNAME }}""
           echo "${{ env.PORT }}"
