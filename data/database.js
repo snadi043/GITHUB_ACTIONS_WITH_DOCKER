@@ -6,7 +6,10 @@ const clusterAddress = process.env.MONOGDB_CLUSTER_ADDRESS;
 const dbUser = process.env.MONGODB_USERNAME;
 const dbPassword = process.env.MONGODB_PASSWORD;
 
-const uri = `${connectionProtocol}://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0`
+// const uri = "mongodb+srv://username:password@cluster0.mongodb.net/mydatabase?retryWrites=true&w=majority";
+
+
+const uri = `${connectionProtocol}://${dbUser}:${dbPassword}@${clusterAddress}/${dbName}?retryWrites=true&w=majority`
 const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
