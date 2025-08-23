@@ -5,7 +5,7 @@ on:
       - main
 env:
   CACHE_KEY: node-deps
-  MONGODB_NAME: gha-docker-demo
+  MONGODB_NAME: github-actions-docker-container
 jobs:
   test:
     runs-on: 'macos-latest'
@@ -22,16 +22,16 @@ jobs:
         uses: actions/checkout@v5
       - name: Install wait-on dependency.
         run: npm install wait-on
-      - name: Install all dependencies.
-        run: npm install
-      - name: Install all dependencies with sanity.
-        run: npm ci
+      # - name: Install all dependencies.
+      #   run: npm install
       - name: Create the update npm cache.
         id: npm-cache-test
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install all dependencies with sanity.
+        run: npm ci
       - name: Run the server.
         run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run Tests.
