@@ -15,15 +15,10 @@ jobs:
       MONGODB_ADDRESS: cluster0.ierxn0t.mongodb.net
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
-      # MONGODB_URI: ${{ secrets.MONGODB_CONNECTION_URI }}
       PORT: 8080
     steps:
       - name: Get the Code.
         uses: actions/checkout@v5
-      # - name: Install wait-on dependency.
-      #   run: npm install wait-on
-      # - name: Install all dependencies.
-      #   run: npm install
       - name: Create the update npm cache.
         id: npm-cache-test
         uses: actions/cache@v4

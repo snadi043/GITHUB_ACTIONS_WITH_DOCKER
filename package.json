@@ -7,6 +7,7 @@
   },
   "name": "github_actions_with_docker",
   "version": "1.0.0",
+  "type": "module",
   "description": "This project focuses on integrating the github actions with docker containers toimplement the concept of continuos delivery in the application development and also test the database connections with testing database images from docker. ",
   "main": "index.js",
   "devDependencies": {
