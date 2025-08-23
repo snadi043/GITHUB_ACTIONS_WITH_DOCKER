@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 const connectionProtocol = process.env.MONGODB_CONNECTION_PROTOCOL;
 const dbName = process.env.MONGODB_DB_NAME;
@@ -6,8 +6,14 @@ const clusterAddress = process.env.MONOGDB_CLUSTER_ADDRESS;
 const dbUser = process.env.MONGODB_USERNAME;
 const dbPassword = process.env.MONGODB_PASSWORD;
 
-const uri = `${connectionProtocol}${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri);
+const uri = `${connectionProtocol}://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0`;
+const client = new MongoClient(uri, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true,
+        }
+    });
 
 console.log('Trying to connect to db');
 
@@ -25,3 +31,4 @@ try {
 const database = client.db(dbName);
 
 export default database;
+
