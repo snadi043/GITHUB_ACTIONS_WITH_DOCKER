@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Get the Code.
         uses: actions/checkout@v5
-      - name: Install wait-on dependency.
-        run: npm install wait-on
+      # - name: Install wait-on dependency.
+      #   run: npm install wait-on
       # - name: Install all dependencies.
       #   run: npm install
       - name: Create the update npm cache.
