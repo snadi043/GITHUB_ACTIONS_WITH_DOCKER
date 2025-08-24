@@ -7,7 +7,7 @@ const dbUser = process.env.MONGODB_USERNAME;
 const dbPassword = process.env.MONGODB_PASSWORD;
 
 let uri = `mongodb://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0` || `mongodb://${clusterAddress}:${port || 27017}/${dbName}`;
-// const uri = 'mongodb+srv://snadi043:glC28pIZf3JtErdR@cluster0.ierxn0t.mongodb.net/github-actions-docker-container?retryWrites=true&w=majority'
+
 const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
