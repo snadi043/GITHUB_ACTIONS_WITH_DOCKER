@@ -1,12 +1,12 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
-const connectionProtocol = process.env.MONGODB_CONNECTION_PROTOCOL;
+// const connectionProtocol = process.env.MONGODB_CONNECTION_PROTOCOL;
 const dbName = process.env.MONGODB_DB_NAME;
 const clusterAddress = process.env.MONGODB_CLUSTER_ADDRESS;
 const dbUser = process.env.MONGODB_USERNAME;
 const dbPassword = process.env.MONGODB_PASSWORD;
 
-const uri = `${connectionProtocol}://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0`
+let uri = `mongodb://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0` || `mongodb://${clusterAddress}:${port || 27017}/${dbName}`;
 // const uri = 'mongodb+srv://snadi043:glC28pIZf3JtErdR@cluster0.ierxn0t.mongodb.net/github-actions-docker-container?retryWrites=true&w=majority'
 const client = new MongoClient(uri, {
         serverApi: {
