@@ -6,7 +6,7 @@ const clusterAddress = process.env.MONGODB_CLUSTER_ADDRESS;
 const dbUser = process.env.MONGODB_USERNAME;
 const dbPassword = process.env.MONGODB_PASSWORD;
 
-let uri = `mongodb://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0` || `mongodb://${clusterAddress}:${port || 27017}/${dbName}`;
+let uri = `mongodb+srv://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority&appName=Cluster0` || `mongodb://${clusterAddress}:${port || 27017}/${dbName}`;
 
 const client = new MongoClient(uri, {
         serverApi: {
