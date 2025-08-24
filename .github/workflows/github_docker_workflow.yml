@@ -8,7 +8,7 @@ env:
   MONGODB_NAME: github-actions-docker-container
 jobs:
   test:
-    runs-on: 'macos-latest'
+    runs-on: 'ubuntu-latest'
     environment: testing
     container:
       image: node:18
@@ -41,7 +41,7 @@ jobs:
         run: echo "Successfully Finished the Test Job."
   deploy:
     needs: test
-    runs-on: 'macos-latest'
+    runs-on: 'ubuntu-latest'
     container:
       image: node:18
     steps:
