@@ -13,11 +13,19 @@ jobs:
     container:
       image: node:18
       env:
-        MONGODB_PROTOCOL: mongodb+srv
-        MONGODB_ADDRESS: cluster0.ierxn0t.mongodb.net
-        MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-        MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+        MONGODB_PROTOCOL: mongodb
+        MONGODB_ADDRESS: 127.0.0.1:27017
+        MONGODB_USERNAME: root
+        MONGODB_PASSWORD: example
         PORT: 8080
+    services:
+      mongodb:
+        image: mongo:5.0
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
     steps:
       - name: Get the Code.
         uses: actions/checkout@v5
